@@ -3,7 +3,7 @@ package net.cakemc.lib.events
 typealias Consumer<T> = (T) -> Unit
 
 @Suppress("UNUSED")
-sealed class CakeEvents(val onError: Consumer<Throwable> = Throwable::printStackTrace) {
+open class CakeEvents(val onError: Consumer<Throwable> = Throwable::printStackTrace) {
     private val handlersIndices = mutableMapOf<EventHandlers.IHandler<out AbstractEvent>, Int>()
     val handlers = mutableMapOf<Class<out AbstractEvent>, Array<EventHandlers.IHandler<out AbstractEvent>>>()
 
